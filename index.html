@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Demo Page</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Simple animation for elements fading in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        /* Custom styling for the toggle switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #4F46E5; /* indigo-600 */
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #4F46E5; /* indigo-600 */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-5xl">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12 fade-in">
+            <div class="inline-block bg-indigo-100 text-indigo-600 p-3 rounded-full mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900">Modern UI Showcase</h1>
+            <p class="mt-4 text-lg text-slate-600">An interactive demonstration of modern web components.</p>
+        </header>
+
+        <!-- Grid for Interactive Elements -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- Left Column -->
+            <div class="space-y-8">
+                
+                <!-- Button Interaction Card -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 fade-in" style="animation-delay: 0.1s;">
+                    <h2 class="text-2xl font-semibold mb-4 text-slate-800">Button Interactions</h2>
+                    <p class="text-slate-600 mb-6">Test the different states and styles of our buttons.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="px-5 py-2.5 font-medium bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition-all duration-300 transform hover:scale-105">
+                            Primary Action
+                        </button>
+                        <button class="px-5 py-2.5 font-medium bg-slate-200 text-slate-800 rounded-lg hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-400 transition-all duration-300">
+                            Secondary
+                        </button>
+                        <button class="px-5 py-2.5 font-medium bg-red-500 text-white rounded-lg shadow-sm hover:bg-red-600 transition-colors duration-300">
+                            Destructive
+                        </button>
+                         <button class="px-5 py-2.5 font-medium bg-slate-300 text-slate-500 rounded-lg cursor-not-allowed" disabled>
+                            Disabled
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Simple Form Card -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 fade-in" style="animation-delay: 0.2s;">
+                    <h2 class="text-2xl font-semibold mb-4 text-slate-800">Contact Form</h2>
+                    <p class="text-slate-600 mb-6">A clean and simple form with focus states.</p>
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-700">Full Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                                focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-700">Email Address</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                                focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-700">Message</label>
+                            <textarea id="message" name="message" rows="3" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                                focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-5 py-3 font-semibold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="formMessage" class="mt-4 text-center"></div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-8">
+                
+                <!-- Interactive Toggles Card -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 fade-in" style="animation-delay: 0.3s;">
+                    <h2 class="text-2xl font-semibold mb-4 text-slate-800">Settings</h2>
+                    <p class="text-slate-600 mb-6">Toggle these settings to see interactions.</p>
+                    <div class="space-y-5">
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium text-slate-700">Enable Notifications</span>
+                            <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                                <input type="checkbox" name="toggle" id="notificationToggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                                <label for="notificationToggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-300 cursor-pointer"></label>
+                            </div>
+                        </div>
+                        <div id="notificationStatus" class="text-sm text-center text-slate-500 p-2 bg-slate-100 rounded-md">Notifications are off.</div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium text-slate-700">Dark Mode</span>
+                             <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                                <input type="checkbox" name="toggle" id="darkModeToggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                                <label for="darkModeToggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-300 cursor-pointer"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clipboard and Slider Card -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 fade-in" style="animation-delay: 0.4s;">
+                    <h2 class="text-2xl font-semibold mb-4 text-slate-800">More Widgets</h2>
+                    <p class="text-slate-600 mb-6">Copy text or adjust the slider.</p>
+                    
+                    <!-- Clipboard -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Copy API Key</label>
+                        <div class="flex items-center bg-slate-100 rounded-lg p-2">
+                            <input id="apiKey" type="text" readonly value="a1b2-c3d4-e5f6-g7h8" class="flex-grow bg-transparent text-slate-600 font-mono text-sm focus:outline-none">
+                            <button id="copyButton" class="ml-2 px-3 py-1.5 text-sm font-medium bg-white text-slate-700 rounded-md hover:bg-slate-200 border border-slate-300 transition-all duration-200">
+                                Copy
+                            </button>
+                        </div>
+                        <div id="copyMessage" class="text-xs text-green-600 mt-1 h-4"></div>
+                    </div>
+                    
+                    <!-- Slider -->
+                    <div>
+                        <label for="volume" class="block text-sm font-medium text-slate-700">Volume: <span id="volumeValue" class="font-bold text-indigo-600">50</span></label>
+                        <input id="volume" type="range" min="0" max="100" value="50" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer mt-2
+                            focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-slate-500 fade-in" style="animation-delay: 0.5s;">
+            <p>&copy; 2025 Modern UI Showcase. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Form Submission ---
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formMessage.textContent = 'Thank you! Your message has been sent.';
+                formMessage.className = 'mt-4 text-center text-green-600';
+                contactForm.reset();
+                setTimeout(() => {
+                    formMessage.textContent = '';
+                }, 4000);
+            });
+
+            // --- Notification Toggle ---
+            const notificationToggle = document.getElementById('notificationToggle');
+            const notificationStatus = document.getElementById('notificationStatus');
+            notificationToggle.addEventListener('change', () => {
+                if (notificationToggle.checked) {
+                    notificationStatus.textContent = 'Notifications are on.';
+                    notificationStatus.classList.add('text-green-600');
+                } else {
+                    notificationStatus.textContent = 'Notifications are off.';
+                    notificationStatus.classList.remove('text-green-600');
+                }
+            });
+
+            // --- Dark Mode Toggle ---
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            darkModeToggle.addEventListener('change', () => {
+                document.body.classList.toggle('dark');
+                // In a real app, you'd have dark mode styles defined.
+                // For this demo, we'll just toggle a class on the body.
+                // You can add styles like: .dark body { background-color: #1a202c; color: white; }
+            });
+
+            // --- Copy to Clipboard ---
+            const copyButton = document.getElementById('copyButton');
+            const apiKeyInput = document.getElementById('apiKey');
+            const copyMessage = document.getElementById('copyMessage');
+            copyButton.addEventListener('click', () => {
+                apiKeyInput.select();
+                // Using document.execCommand for broader compatibility in sandboxed environments
+                try {
+                    document.execCommand('copy');
+                    copyMessage.textContent = 'Copied!';
+                    copyButton.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyMessage.textContent = '';
+                        copyButton.textContent = 'Copy';
+                    }, 2000);
+                } catch (err) {
+                    copyMessage.textContent = 'Failed to copy!';
+                    copyMessage.classList.add('text-red-500');
+                }
+            });
+
+            // --- Volume Slider ---
+            const volumeSlider = document.getElementById('volume');
+            const volumeValue = document.getElementById('volumeValue');
+            volumeSlider.addEventListener('input', (e) => {
+                volumeValue.textContent = e.target.value;
+            });
+        });
+    </script>
+
+</body>
+</html>
